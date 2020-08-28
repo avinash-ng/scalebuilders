@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { CardMedia, makeStyles, Card, CardContent, Typography, createMuiTheme, ThemeProvider, Grid } from '@material-ui/core'
+import { maxHeaderSize } from 'http';
 export interface ICardProps {
     cardImage: string
     cardName: string
-    aboutCard : string 
+    aboutCard? : string 
     maxWidth: number
 };
 const useStyles = makeStyles((theme) => ({
@@ -56,14 +57,14 @@ const RoomCollectionCard:React.FC<ICardProps> = ({cardName, cardImage, aboutCard
                             title={cardName}
                         />
                         <CardContent>
-                            {aboutCard !== null ? <Grid container direction="column" justify="flex-start" spacing={1}>
-                                            <Grid item>
-                                                <Typography variant="h6">{cardName}</Typography>
-                                            </Grid>
-                                            <Grid item>
-                                                <Typography variant="body1">{aboutCard}</Typography>
-                                            </Grid>
-                                        </Grid>
+                            {aboutCard !== undefined ? <Grid container direction="column" justify="flex-start" spacing={1}>
+                                                            <Grid item>
+                                                                <Typography variant="h6">{cardName}</Typography>
+                                                            </Grid>
+                                                            <Grid item>
+                                                                <Typography variant="body1">{aboutCard}</Typography>
+                                                            </Grid>
+                                                        </Grid>
                                         :<Typography variant="subtitle1" className={classes.title}>{cardName}</Typography>}
                         </CardContent>
                     </Card>

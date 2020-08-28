@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Card, CardContent, Grid, Typography, makeStyles, Theme, createMuiTheme, ThemeProvider } from '@material-ui/core';
-export interface ILayoutCardProps {
-    layoutImage?: string
-    layoutName?: string
+export interface IRoomCardProps {
+    roomImage?: string
+    roomName?: string
 }
 const useStyles = makeStyles((theme) => ({
-    layoutcard: {
+    roomcard: {
     //    maxWidth: '330px',
        borderRadius: '4px'
     },
@@ -32,7 +32,7 @@ const theme = createMuiTheme({
                 paddingLeft: 0,
                 paddingRight: 0,
                 paddingTop: 0,
-                paddingBottom: 0,
+                // paddingBottom: 0,
                 '&:last-child': {
                     paddingBottom: '12px'
                 }
@@ -40,7 +40,7 @@ const theme = createMuiTheme({
         }
     }
 })
-const LayoutCard:React.FC<ILayoutCardProps> = ({layoutImage, layoutName}) => {
+const RoomCard:React.FC<IRoomCardProps> = ({roomImage, roomName}) => {
     const classes = useStyles();
     const [raised, setRaised] = useState<boolean>(false);
     const raiseHandler = () => {
@@ -50,14 +50,14 @@ const LayoutCard:React.FC<ILayoutCardProps> = ({layoutImage, layoutName}) => {
             
         
             <ThemeProvider theme = {theme}>
-                <Card raised={raised} onMouseOver={raiseHandler} onMouseOut={raiseHandler} className={classes.layoutcard}>
+                <Card raised={raised} onMouseOver={raiseHandler} onMouseOut={raiseHandler} className={classes.roomcard}>
                     <CardContent>
                         <Grid container direction="column" alignItems="center"  spacing={1}>
                             <Grid item >
-                                <img className={classes.image} src={layoutImage}></img>
+                                <img className={classes.image} src={roomImage}></img>
                             </Grid>
                             <Grid item>
-                                <Typography variant="h6">{layoutName}</Typography>
+                                <Typography variant="h6">{roomName}</Typography>
                             </Grid>
                         </Grid>
                     </CardContent>
@@ -67,4 +67,4 @@ const LayoutCard:React.FC<ILayoutCardProps> = ({layoutImage, layoutName}) => {
         
     )
 }
-export default LayoutCard
+export default RoomCard

@@ -9,6 +9,6 @@ const items: ICollectionCardProps[] = [
     {collectionImage:'https://img4.nbstatic.in/tr:w-500/584f99ccc9e77c000d1749c9.jpg', aboutCollection:'Elegant, refined and graceful.  Clasico lacks garnish or overstated design elements that shout for attention. It is permanently current.', collectionName:'Clasico'}
 ]
 storiesOf('CollectionCardList', module).addDecorator(withKnobs)
-.add('default', () => (
+.add('list of collections', () => (
     <CollectionCardList itemsList={items}></CollectionCardList>
 ))
